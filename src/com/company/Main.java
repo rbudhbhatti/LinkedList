@@ -16,7 +16,24 @@ public class Main {
         list.add(5);
         list.add(6);
         list.add(7);
+
         System.out.println("Remove duplicate from linked list" + removeDup(list));
+        System.out.println("Remove dups w/o buffer" + removeDupNoBuffer(list));
+    }
+
+    private static LinkedList removeDupNoBuffer(LinkedList list) {
+        int i=0;
+        Object temp;
+        int length= list.size();
+        for(i=0;i<length;i++){
+            temp = list.get(i);
+            for(int j=i+1;j<length;j++){
+               if (temp == list.get(j)){
+                   list.remove(j);
+               }
+            }
+        }
+        return list;
     }
 
     private static LinkedList removeDup(LinkedList list) {
